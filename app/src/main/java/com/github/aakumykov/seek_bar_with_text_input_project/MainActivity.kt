@@ -5,8 +5,12 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.github.aakumykov.seek_bar_with_text_input.SeekBarWithTextInput
 
 class MainActivity : AppCompatActivity() {
+
+    private lateinit var seekBarWithTextInput: SeekBarWithTextInput
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -15,6 +19,10 @@ class MainActivity : AppCompatActivity() {
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
+        }
+        seekBarWithTextInput = findViewById(R.id.seekBarWithTextInput)
+        seekBarWithTextInput.setProgressLabelProvider { progress ->
+            getString(R.string.size_label, progress)
         }
     }
 }

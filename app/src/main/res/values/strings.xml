@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">seek_bar_with_text_input_project</string>
+    <string name="size_label">Размер: %1$d</string>
 </resources>
